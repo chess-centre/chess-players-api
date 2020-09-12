@@ -74,16 +74,11 @@ module.exports.createPlayer = (event: APIGatewayProxyEvent, context: Context, ca
 /**
  * GET /players
  */
-module.exports.getAllPlayers = (event: APIGatewayProxyEvent, context: Context, callback: Function): Promise<APIGatewayProxyHandler> => {
-  return db
-    .scan({
-      TableName: playersTable
-    })
-    .promise()
-    .then((res) => {
-      callback(null, response(StatusCode.Success, res.Items?.sort(sortByDate)));
-    })
-    .catch((err) => callback(null, response(err.statusCode, err)));
+module.exports.getAllPlayers = async (event: APIGatewayProxyEvent, context: Context, callback: Function): Promise<APIGatewayProxyHandler> => {
+  const res = await db.scan({TableName: playersTable}).promise()
+                      .catch((err) => callback(null, response(err.statusCode, err)))
+
+  return callback(null, response(StatusCode.Success, res.Items?.sort(sortByDate)));
 };
 
 /**
