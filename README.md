@@ -17,16 +17,17 @@
 
 ## Intro
 
-This package for creating a basic chess player API using AWS `Lambda` & `DynamoDB` written in `TypeScript`. This provides the initial CRUD operations to expose a HTTP service using the AWS `Gateway API`. 
+This is a project for quickly creating a basic chess player API using the cool features of `Lambda` & `DynamoDB` from AWS and written in `TypeScript`. It provides the initial CRUD operations exposed over HTTP.
 
-This package is to support the creation of the [chess-players](https://github.com/chess-centre/chess-players) npm package for downloading offically published player data. You can then currate your own data and santize this as you choose i.e., only store top grandmasters
+Use the [chess-players](https://github.com/chess-centre/chess-players) npm package for downloading offically published player data, you can currate your own santized data, for example, only store top grandmasters!
 
 ## Getting started
 
 ### Prerequisites
 
-* AWS Account: [create here](https://aws.amazon.com/console/)
-* Serverless Framework: [info](https://www.serverless.com/)
+* NodeJs (v12+)
+* AWS account: [create here](https://aws.amazon.com/console/)
+* Serverless framework: [info](https://www.serverless.com/)
 
 Once you have created your account, proceed with the following:
 
@@ -36,7 +37,7 @@ npm i -g serverless
 
 ### Running locally
 
-Install dynamodb - so you can test your commands locally, with postman or curl
+Install dynamodb - to test your commands locally with postman or curl
 
 ```
 sls dynamodb install
@@ -75,9 +76,9 @@ sls deploy
 | /player/{id} | PUT         | updates a existing `Player` by `id`                        |
 
 
-_Note: DELETE has been left out as this is an unlikely operation_
+_Note: DELETE has been left out intentionally as this is an unlikely operation_
 
-More complex queries can be added and indexes on your database will be useful depending on how you intend to use your data.
+More complex queries can be added and indexes on your database table will be useful depending on how you intend to use your data.
 
 ### Player object
 
