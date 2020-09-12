@@ -17,6 +17,8 @@
 
 ## Intro
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/44b658dc5fd54d3a92bf07e6137289c5)](https://app.codacy.com/gh/chess-centre/chess-players-api?utm_source=github.com&utm_medium=referral&utm_content=chess-centre/chess-players-api&utm_campaign=Badge_Grade_Dashboard)
+
 This is a project for quickly creating a basic chess player API using the cool features of `Lambda` & `DynamoDB` from AWS, all written in `TypeScript`. It provides the initial CRUD operations exposed over HTTP.
 
 You can use the [chess-players](https://github.com/chess-centre/chess-players) npm package for downloading offically published player data. Together you can currate your own santized data source, for example only store top grandmasters!
