@@ -76,7 +76,7 @@ module.exports.createPlayer = (event: APIGatewayProxyEvent, context: Context, ca
  */
 module.exports.getAllPlayers = async (event: APIGatewayProxyEvent, context: Context, callback: Function): Promise<APIGatewayProxyHandler> => {
   const res = await db.scan({TableName: playersTable}).promise()
-                      .catch((err) => callback(null, response(err.statusCode, err)))
+                      .catch((err) => callback(null, response(err.statusCode, err)));
 
   return callback(null, response(StatusCode.Success, res.Items?.sort(sortByDate)));
 };
