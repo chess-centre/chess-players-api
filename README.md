@@ -17,7 +17,7 @@
 
 ## Intro
 
-This is a project for quickly creating a basic chess player API using the cool features of `Lambda` & `DynamoDB` from AWS and written in `TypeScript`. It provides the initial CRUD operations exposed over HTTP.
+This is a project for quickly creating a basic chess player API using the cool features of `Lambda` & `DynamoDB` from AWS, all written in `TypeScript`. It provides the initial CRUD operations exposed over HTTP.
 
 Use the [chess-players](https://github.com/chess-centre/chess-players) npm package for downloading offically published player data, you can currate your own santized data, for example, only store top grandmasters!
 
