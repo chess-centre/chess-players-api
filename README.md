@@ -84,7 +84,7 @@ More complex queries can be added and indexes on your database table will be use
 
 Basic properties for a player record.
 
-```
+```typescript
 interface Player {
   id: number,
   name: string,
