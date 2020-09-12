@@ -8,6 +8,9 @@
       <a href="https://github.com/chess-centre/welcome/blob/master/LICENSE">
         <img alt="GitHub" src="https://img.shields.io/github/license/chess-centre/welcome?style=flat">
       </a>
+      <a href="https://app.codacy.com/gh/chess-centre/chess-players-api?utm_source=github.com&utm_medium=referral&utm_content=chess-centre/chess-players-api&utm_campaign=Badge_Grade_Dashboard">
+        <img alt="Codacy" src="https://api.codacy.com/project/badge/Grade/44b658dc5fd54d3a92bf07e6137289c5">
+      </a>
   </p>
   <h1 align="center"> Chess Players API </h1>
 </p>
@@ -16,8 +19,6 @@
 </p>
 
 ## Intro
-
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/44b658dc5fd54d3a92bf07e6137289c5)](https://app.codacy.com/gh/chess-centre/chess-players-api?utm_source=github.com&utm_medium=referral&utm_content=chess-centre/chess-players-api&utm_campaign=Badge_Grade_Dashboard)
 
 This is a project for quickly creating a basic chess player API using the cool features of `Lambda` & `DynamoDB` from AWS, all written in `TypeScript`. It provides the initial CRUD operations exposed over HTTP.
 
