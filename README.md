@@ -12,7 +12,7 @@
   <h1 align="center"> Chess Players API </h1>
 </p>
 <p align="center">
-  <h3 align="center"> A project for creating your own player database & RESTful API. </h3>
+  <h3 align="center"> A project for creating your own API player database. </h3>
 </p>
 
 ## Intro
@@ -40,10 +40,9 @@ Install dynamodb - so you can test your commands locally, with postman or curl
 
 ```
 sls dynamodb install
-npm i -g serverless-offline
 ```
 
-[more info](https://www.serverless.com/plugins/serverless-dynamodb-local)
+To understand more about working with `DynamoDB` offline see here: [more info](https://www.serverless.com/plugins/serverless-dynamodb-local)
 
 ```
 sls offline start
@@ -60,6 +59,8 @@ provider:
   region: eu-west-2 <---- change to your local region
 ```
 
+Once your dependencies are all installed, run:
+
 ```
 sls deploy
 ```
@@ -68,17 +69,19 @@ sls deploy
 
 | Name         | Method      | Description                                                |
 | :---         |    :----:   | :---                                                       |
-| /player      | POST        | Creates a new [player record](#player-record)              |
-| /player/{id} | GET         | Returns a player record by `id`                            |
-| /players     | GET         | Returns all players (no limit)                             |
-| /player/{id} | PUT         | Updates a existing [player record](#player-record) by `id` |
+| /player      | POST        | creates a new `Player` record                              |
+| /player/{id} | GET         | returns a player record by `id`                            |
+| /players     | GET         | returns all players (no limit)                             |
+| /player/{id} | PUT         | updates a existing `Player` by `id`                        |
 
 
 _Note: DELETE has been left out as this is an unlikely operation_
 
+More complex queries can be added and indexes on your database will be useful depending on how you intend to use your data.
 
 ### Player object
-#player-object
+
+Basic properties for a player record.
 
 ```
 interface Player {
