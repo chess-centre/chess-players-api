@@ -28,9 +28,9 @@ You can use the [chess-players](https://github.com/chess-centre/chess-players) n
 
 ### Prerequisites
 
-* NodeJs (v12+)
-* AWS account: [create here](https://aws.amazon.com/console/)
-* Serverless framework: [info](https://www.serverless.com/)
+*  NodeJs (v12+)
+*  AWS account: [create here](https://aws.amazon.com/console/)
+*  Serverless framework: [info](https://www.serverless.com/)
 
 Once you have created your account, proceed with the following:
 
@@ -79,7 +79,7 @@ sls deploy
 | /player/{id} | PUT         | updates a existing `Player` by `id`                        |
 
 
-_Note: DELETE has been left out intentionally as this is an unlikely operation_
+Note: DELETE has been left out intentionally as this is an unlikely operation
 
 More complex queries can be added and indexes on your database table will be useful depending on how you intend to use your data.
 
@@ -96,4 +96,3 @@ interface Player {
   createdAt: string,
 }
 ```
-
