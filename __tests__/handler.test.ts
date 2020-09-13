@@ -10,6 +10,8 @@ describe('HTTP calls', () => {
         expect(handler.getPlayer({ pathParameters: {
             id: 1
         }})).resolves.toBe(mockData);
+        
+        // TODO: add 'Player not found' case
     });
 
     test('POST /player -> createPlayer()', async () => {
@@ -18,6 +20,8 @@ describe('HTTP calls', () => {
             country: 'player country',
             rating: 1000 })
         })).resolves.toBe(mockData);
+
+        // TODO: exception for 'Player must have an id, name, rating'
     });
 
     test('PUT /player/{id} -> updatePlayer()', async () => {
