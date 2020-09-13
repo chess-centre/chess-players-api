@@ -1,9 +1,9 @@
-'use strict';
+"use strict";
 
-import * as AWS from 'aws-sdk';
-import { APIGatewayProxyHandler, APIGatewayProxyEvent } from 'aws-lambda';
+import * as AWS from "aws-sdk";
+import { APIGatewayProxyHandler, APIGatewayProxyEvent } from "aws-lambda";
 
-const db = new AWS.DynamoDB.DocumentClient({ apiVersion: '2012-08-10' });
+const db = new AWS.DynamoDB.DocumentClient({ apiVersion: "2012-08-10" });
 const playersTable = process.env.PLAYERS_TABLE || "players";
 
 interface Player {
@@ -46,7 +46,7 @@ module.exports.createPlayer = async (event: APIGatewayProxyEvent, callback: Func
     return callback(
       null,
       response(StatusCode.BadRequest, {
-        error: 'Player must have an id, name and rating'
+        error: "Player must have an id, name and rating"
       })
     );
   }
@@ -95,7 +95,7 @@ module.exports.getPlayer = async (event: APIGatewayProxyEvent, callback: Functio
   if (res.Item) {
     return callback(null, response(StatusCode.Success, res.Item))
   } else {
-    return callback(null, response(StatusCode.NotFound, { error: 'Player not found' }))
+    return callback(null, response(StatusCode.NotFound, { error: "Player not found" }))
   }
 };
 
@@ -105,7 +105,7 @@ module.exports.getPlayer = async (event: APIGatewayProxyEvent, callback: Functio
  */
 module.exports.updatePlayer = async (event: APIGatewayProxyEvent, callback: Function): Promise<APIGatewayProxyHandler> => {
   const { id } = event.pathParameters!;
-  const reqBody = JSON.parse(event.body || '{}');
+  const reqBody = JSON.parse(event.body || "{}");
   const { rating }: Player = reqBody;
 
   const params = {
@@ -113,28 +113,17 @@ module.exports.updatePlayer = async (event: APIGatewayProxyEvent, callback: Func
       id: id
     },
     TableName: playersTable,
-    ConditionExpression: 'attribute_exists(id)',
-    UpdateExpression: 'SET rating = :rating',
+    ConditionExpression: "attribute_exists(id)",
+    UpdateExpression: "SET rating = :rating",
     ExpressionAttributeValues: {
-      ':rating': rating,
+      ":rating": rating,
     },
-    ReturnValues: 'ALL_NEW'
+    ReturnValues: "ALL_NEW"
   };
 
-<<<<<<< HEAD
   const res = await db.update(params).promise()
                         .catch((err) => callback(null, response(err.statusCode, err)));
 
   return callback(null, response(StatusCode.Success, res.Attributes));
     
 };
-=======
-  return db
-    .update(params)
-    .promise()
-    .then((res) => {
-      callback(null, response(StatusCode.Success, res.Attributes));
-    })
-    .catch((err) => callback(null, response(err.statusCode, err)));
-};
->>>>>>> 773cc0bd2cdd22c820b2c328f5db7d2252bb98cf
