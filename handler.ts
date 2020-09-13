@@ -71,7 +71,7 @@ module.exports.createPlayer = async (event: APIGatewayProxyEvent, callback: Func
  */
 module.exports.getPlayers = async (event: APIGatewayProxyEvent, callback: Function): Promise<APIGatewayProxyHandler> => {
   const res = await db.scan({ TableName: playersTable }).promise()
-    .catch((err) => callback(null, response(err.statusCode, err)))
+                      .catch((err) => callback(null, response(err.statusCode, err)));
 
   return callback(null, response(StatusCode.Success, res.Items?.sort(sortByDate)));
 };
@@ -90,12 +90,12 @@ module.exports.getPlayer = async (event: APIGatewayProxyEvent, callback: Functio
   };
 
   const res = await db.get(params).promise()
-    .catch((err) => callback(null, response(err.statusCode, err)));
+                      .catch((err) => callback(null, response(err.statusCode, err)));
 
   if (res.Item) {
-    return callback(null, response(StatusCode.Success, res.Item))
+    return callback(null, response(StatusCode.Success, res.Item));
   } else {
-    return callback(null, response(StatusCode.NotFound, { error: "Player not found" }))
+    return callback(null, response(StatusCode.NotFound, { error: "Player not found" }));
   }
 };
 
@@ -122,7 +122,7 @@ module.exports.updatePlayer = async (event: APIGatewayProxyEvent, callback: Func
   };
 
   const res = await db.update(params).promise()
-                        .catch((err) => callback(null, response(err.statusCode, err)));
+                      .catch((err) => callback(null, response(err.statusCode, err)));
 
   return callback(null, response(StatusCode.Success, res.Attributes));
     
