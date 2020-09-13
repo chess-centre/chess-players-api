@@ -121,9 +121,20 @@ module.exports.updatePlayer = async (event: APIGatewayProxyEvent, callback: Func
     ReturnValues: 'ALL_NEW'
   };
 
+<<<<<<< HEAD
   const res = await db.update(params).promise()
                         .catch((err) => callback(null, response(err.statusCode, err)));
 
   return callback(null, response(StatusCode.Success, res.Attributes));
     
 };
+=======
+  return db
+    .update(params)
+    .promise()
+    .then((res) => {
+      callback(null, response(StatusCode.Success, res.Attributes));
+    })
+    .catch((err) => callback(null, response(err.statusCode, err)));
+};
+>>>>>>> 773cc0bd2cdd22c820b2c328f5db7d2252bb98cf
