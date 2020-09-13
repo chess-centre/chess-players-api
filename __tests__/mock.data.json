@@ -1,0 +1,7 @@
+{
+    "id": 1,
+    "name": "player name",
+    "rating": 1000,
+    "country": "player country",
+    "createAt": "date string"
+}
