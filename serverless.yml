@@ -10,6 +10,7 @@ custom:
 plugins:
     - serverless-plugin-typescript
     - serverless-dynamodb-local
+    - serverless-offline
 
 provider:
   name: aws
@@ -34,8 +35,8 @@ functions:
     - http:
         path: /player
         method: post
-  getAllPlayers:
-    handler: handler.getAllPlayers
+  getPlayers:
+    handler: handler.getPlayers
     events:
     - http:
         path: /players
