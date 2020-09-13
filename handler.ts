@@ -40,7 +40,7 @@ const sortByDate: any = (a: Player, b: Player) => (a.createdAt > b.createdAt) ? 
  * POST /players
  */
 module.exports.createPlayer = async (event: APIGatewayProxyEvent, callback: Function): Promise<APIGatewayProxyHandler> => {
-  const { id, name, rating, country }: Player = JSON.parse(event.body || '{}');
+  const { id, name, rating, country }: Player = JSON.parse(event.body || "{}");
 
   if (!id || !name || !rating) {
     return callback(
@@ -110,7 +110,7 @@ module.exports.updatePlayer = async (event: APIGatewayProxyEvent, callback: Func
 
   const params = {
     Key: {
-      id: id
+      id
     },
     TableName: playersTable,
     ConditionExpression: "attribute_exists(id)",
