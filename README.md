@@ -72,7 +72,7 @@ sls deploy
 ## API
 
 | Name         | Method      | Lambda          | Description                                                |
-| :---         |    :----:   | :----:          |:---                                                        |
+| :---         |    :----:   | :----           |:---                                                        |
 | /player      | POST        | createPlayer()  | creates a new `Player` record                              |
 | /player/{id} | GET         | getPlayer()     | returns a player record by `id`                            |
 | /players     | GET         | getPlayers()    | returns all players (no limit)                             |
