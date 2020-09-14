@@ -28,13 +28,13 @@ You can use the [chess-players](https://github.com/chess-centre/chess-players) n
 
 ### Prerequisites
 
-*  NodeJs (v12+)
-*  AWS account: [create here](https://aws.amazon.com/console/)
-*  Serverless framework: [info](https://www.serverless.com/)
+*   NodeJs (v12+)
+*   AWS account: [create here](https://aws.amazon.com/console/)
+*   Serverless framework: [info](https://www.serverless.com/)
 
 Once you have created your account, proceed with the following:
 
-```
+```bash
 npm i -g serverless
 ```
 
@@ -42,13 +42,13 @@ npm i -g serverless
 
 Install dynamodb - to test your commands locally with postman or curl
 
-```
+```bash
 sls dynamodb install
 ```
 
 To understand more about working with `DynamoDB` offline see here: [more info](https://www.serverless.com/plugins/serverless-dynamodb-local)
 
-```
+```bash
 sls offline start
 ```
 
@@ -65,18 +65,18 @@ provider:
 
 Once your dependencies are all installed, run:
 
-```
+```bash
 sls deploy
 ```
 
 ## API
 
-| Name         | Method      | Description                                                |
-| :---         |    :----:   | :---                                                       |
-| /player      | POST        | creates a new `Player` record                              |
-| /player/{id} | GET         | returns a player record by `id`                            |
-| /players     | GET         | returns all players (no limit)                             |
-| /player/{id} | PUT         | updates a existing `Player` by `id`                        |
+| Name         | Method      | Lambda          | Description                                                |
+| :---         |    :----:   | :----:          |:---                                                        |
+| /player      | POST        | createPlayer()  | creates a new `Player` record                              |
+| /player/{id} | GET         | getPlayer()     | returns a player record by `id`                            |
+| /players     | GET         | getPlayers()    | returns all players (no limit)                             |
+| /player/{id} | PUT         | updatePlayer()  | updates a existing `Player` by `id`                        |
 
 
 Note: DELETE has been left out intentionally as this is an unlikely operation
@@ -96,3 +96,9 @@ interface Player {
   createdAt: string,
 }
 ```
+
+### Contributing
+
+*   [How to contribute](https://github.com/chess-centre/welcome/blob/master/CONTRIBUTING.md)
+
+License: [MIT](LICENSE)
